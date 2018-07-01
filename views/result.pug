@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    h1= title
+    p Вот список аптек, где дешевле всего купить все выбранные лекарства.
+    main
+        ul
+            each val in apothecas
+                li
+                    span= "Общая сумма - " + val.sum + " "
+                    span &#8381;.
+                    br
+                    a(href=val.url)= val.address
+        a(href="/") Назад к поиску

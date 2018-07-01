@@ -1,0 +1,72 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+* + * {
+  margin-top: 0.5rem;
+}
+a {
+  color: #00b7ff;
+}
+h1,
+p {
+  text-align: center;
+}
+input[type="search"] {
+  display: block;
+  padding: 0.5rem;
+  width: 70%;
+  font-size: 16px;
+  margin: 0.5rem auto;
+}
+form {
+  padding: 4rem 2rem;
+}
+form fieldset label {
+  display: block;
+}
+form fieldset input {
+  padding-left: 2rem;
+}
+button {
+  display: block;
+  padding: 1rem;
+  margin: 2rem auto;
+  cursor: pointer;
+}
+.chosen-drugs {
+  margin-top: 1rem;
+}
+.chosen-drugs div {
+  border: 1px #808080 dashed;
+  cursor: pointer;
+}
+.chosen-drugs div:hover {
+  border-color: #8b0000;
+}
+.chosen-drugs div:hover:before,
+.chosen-drugs div:hover:after {
+  opacity: 1;
+}
+.close {
+  position: relative;
+}
+.close:hover {
+  opacity: 1;
+}
+.close:before,
+.close:after {
+  position: absolute;
+  right: 0.5rem;
+  content: ' ';
+  height: 1rem;
+  width: 0.2rem;
+  background-color: #8b0000;
+  opacity: 0;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}

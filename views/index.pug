@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  p Добро пожаловать в #{title}. Здесь вы можете подобрать аптеку с самой низкой ценой за группу выбранных лекарств.
+  input(type="search" name="q")
+  form(class="search-form" action="search" method="POST")
+    input(name="drugs" hidden="true")
+  section(class="chosen-drugs")
+  button(class="search-button" type="submit" title="Найти аптеку с самой низкой ценой за все выбранные лекарства") Найти аптеку
+
+  script(src="auto-complete.min.js")
+  script(src="/js/public.js")
