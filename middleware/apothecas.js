@@ -12,7 +12,7 @@ async function getApothecaries(req) {
   let drugsArr = drugs.map(async drug => {
     let result = []
     const url = drug.url || ''
-    const html = await fetch(`${baseUrl}${url}`).then(res => res.text())
+    const html = await fetch(`${baseUrl}${url}`).then(res => res.text()).catch(e => console.error(e))
     let $ = cheerio.load(html)
     const nodes = $('.apothecas-addresses-list-item')
     if (nodes.length) {
@@ -20,7 +20,8 @@ async function getApothecaries(req) {
         return {
           address: $(node).find('.apothecas-addresses-list-item-contacts-address').text(),
           price: $(node).find('.apothecas-addresses-list-item-price span:first-child').text().replace(/[^0-9.]/g, ''),
-          url: baseUrl + $(node).find('.apothecas-addresses-list-item-name-field a').attr('href').replace(' ', '')
+          url: baseUrl + $(node).find('.apothecas-addresses-list-item-name-field a').attr('href').replace(' ', ''),
+          drugName: drug.DrugName,
         }
       })
     }
@@ -34,6 +35,7 @@ async function getApothecaries(req) {
       intersection = _.intersectionWith(intersection, rawApotecasData[i], (val1, val2) => {
         if (val2.url === val1.url) {
           val1['price' + i] = val2.price
+          val1['drugName' + i] = val2.drugName
           return true
         } else {
           return false

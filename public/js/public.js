@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const baseUrl = 'http://www.medgorodok.ru'
   let drugs = []
   let lastDrugResponse
   let xhr
@@ -11,14 +10,12 @@ document.addEventListener('DOMContentLoaded', function () {
     source: function(term, suggest) {
       try { xhr.abort(); } catch(e){}
       xhr = new XMLHttpRequest()
-      let data = new FormData()
-      data.append('qs', `${term}`)
-      xhr.open('POST', `${baseUrl}/ajax.php`)
+      xhr.open('GET', `search/tips/?qs=${term}`)
       xhr.onload = function(e) {
         lastDrugResponse = JSON.parse(e.target.response)
         suggest(lastDrugResponse)
       }
-      xhr.send(data)
+      xhr.send()
     },
     onSelect: function(e, term, item){
       let itemData = lastDrugResponse.find(drug => drug.DrugID === item.id)
