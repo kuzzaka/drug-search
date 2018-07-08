@@ -8,7 +8,7 @@ router.post('/', async function(req, res, next) {
   const apotecas = await getApothecaries(req)
   res.render('result', {
     apothecas: apotecas,
-    title: 'Поиск аптеки в Екатеринбурге',
+    title: 'Поиск аптеки в с самой низкой ценой',
   });
 });
 

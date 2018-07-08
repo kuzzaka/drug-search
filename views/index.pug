@@ -3,6 +3,7 @@ extends layout
 block content
   h1= title
   p Добро пожаловать в #{title}. Здесь вы можете подобрать аптеку с самой низкой ценой за группу выбранных лекарств.
+  p Выберите с помощью поисковой строки нужные лекарства и нажмите на кнопку "Найти аптеку"
   input(type="search" name="q")
   form(class="search-form" action="search" method="POST")
     input(name="drugs" hidden="true")
