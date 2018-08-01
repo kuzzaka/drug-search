@@ -5,6 +5,9 @@
   "scripts": {
     "start": "node ./bin/www"
   },
+  "now": {
+    "alias": "ekb-poisk-lekarstv"
+  },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "cookie-parser": "~1.4.3",
